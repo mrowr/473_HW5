@@ -13,7 +13,7 @@ var http = require("http"),
 		ties: 0
 	},
 	moves = ["rock", "paper", "scissors", "spock", "lizard"],
-	serverResponse = moves[Math.floor(Math.random() * moves.length)];
+	serverResponse;
 
 
 function beginHTML(res) {
@@ -56,10 +56,16 @@ function playPage(res) {
     endHTML(res);
 }
 
+//http://blog.tompawlak.org/how-to-generate-random-values-nodejs-javascript
+function randomIntInc (low, high) {
+    return Math.floor(Math.random() * (high - low + 1) + low);
+}
+
 function lose() { score.losses++; score.outcome = "lose"; }
 function win() { score.wins++; score.outcome = "win"; }
 
 function gameLogic(res, player) {
+	serverResponse = moves[randomIntInc(0,4)];
 	if (serverResponse === player) {
 		score.ties++;
 		score.outcome = "tie";
