@@ -29,7 +29,7 @@ function beginHTML(res) {
 
 function endHTML(res) {
 	res.write("</center></main>\n");
-    res.write("</body>\n");
+	res.write("</body>\n");
 	res.end("</html>");
 }
 
@@ -50,15 +50,15 @@ function playPage(res) {
 	beginHTML(res);
 	res.write("<form method='POST' action='/play/rock'><input type='submit' value='Rock'></form>\n");
 	res.write("<form method='POST' action='/play/paper'><input type='submit' value='Paper'></form>\n");
-    res.write("<form method='POST' action='/play/scissors'><input type='submit' value='Scissors'></form>\n");
-    res.write("<form method='POST' action='/play/spock'><input type='submit' value='Spock'></form>\n");  
-    res.write("<form method='POST' action='/play/lizard'><input type='submit' value='Lizard'></form>\n");
+	res.write("<form method='POST' action='/play/scissors'><input type='submit' value='Scissors'></form>\n");
+	res.write("<form method='POST' action='/play/spock'><input type='submit' value='Spock'></form>\n");  
+	res.write("<form method='POST' action='/play/lizard'><input type='submit' value='Lizard'></form>\n");
     endHTML(res);
 }
 
 //http://blog.tompawlak.org/how-to-generate-random-values-nodejs-javascript
 function randomIntInc (low, high) {
-    return Math.floor(Math.random() * (high - low + 1) + low);
+	return Math.floor(Math.random() * (high - low + 1) + low);
 }
 
 function lose() { score.losses++; score.outcome = "lose"; }
